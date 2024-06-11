@@ -97,7 +97,7 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 
 Hier is het elektrische schema van de SmartGreenhouse:
 
-![Elektrisch Schema](url-naar-afbeelding)
+![Elektrisch Schema]([url-naar-afbeelding](https://github.com/VHJonas/Serre/blob/main/Elektrisch_schema.png))
 
 ## Bijdragen
 
