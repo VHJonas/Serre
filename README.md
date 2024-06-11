@@ -111,7 +111,7 @@ En dit is de Gerber-Zip File:
 
 ## Volledige documentatie
 
-Hier kan je de volledig gedocumenteerde pdf vinden:
+In de volledige documentatie (PDF) kan je alle details terugvinden van A tot Z hoe ik mijn project heb verwezenlijkt.
 
 ![Volledige-documentatie](https://github.com/VHJonas/Serre/blob/main/Smart-Green-House%20(1).pdf)
 
