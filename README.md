@@ -10,6 +10,7 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 - [Installatie](#installatie)
 - [Gebruik](#gebruik)
 - [Schematisch Overzicht](#schematisch-overzicht)
+- [PCB design](#PCB-design)
 - [Bijdragen](#bijdragen)
 - [Licentie](#licentie)
 
@@ -97,11 +98,15 @@ Hier is het elektrische schema van de SmartGreenhouse:
 
 ![Elektrisch Schema](https://github.com/VHJonas/Serre/blob/main/Elektrisch_schema.png)
 
-## PCB design
+## PCB-design
 
 Hier is het PCB-desgin van de SmartGreenhouse:
 
 ![PCB-design](https://github.com/VHJonas/Serre/blob/main/PCB_schema.png)
+
+En dit is de Gerber-Zip File:
+
+![CamOutputs](https://github.com/VHJonas/Serre/blob/main/CAMOutputs.zip)
 
 ## Bijdragen
 
