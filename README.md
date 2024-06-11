@@ -6,8 +6,12 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 
 - [Kenmerken](#kenmerken)
 - [Benodigdheden](#benodigdheden)
-- [Software Vereisten](#software-vereisten)
-- [Installatie](#installatie)
+- [Software Vereisten ESP32](#software-vereisten-ESP32)
+- [Installatie ESP32](#installatie-ESP32)
+- [Software Vereisten MQTT](#software-vereisten-MQTT)
+- [Installatie MQTT](#Installatie-MQTT)
+- [Configuratie MQTT](#Configuratie-MQTT)
+- [Configuratie InfluxDB](#Configuratie-InfluxDB)
 - [Gebruik](#gebruik)
 - [Schematisch Overzicht](#schematisch-overzicht)
 - [PCB design](#PCB-design)
@@ -35,8 +39,9 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 - 20x4 I2C LCD Display
 - Relay Module voor het aansturen van actuatoren (verwarming, pomp, LED-strip)
 - Jumperdraden en breadboard
+- Raspberry Pi
 
-## Software Vereisten
+## Software Vereisten ESP32
 
 - Arduino IDE met ESP32 board support
 - PubSubClient library voor MQTT
@@ -46,7 +51,7 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 - DallasTemperature library voor DS18B20 sensor
 - LiquidCrystal I2C library voor LCD
 
-## Installatie
+## Installatie ESP32
 
 1. **Installeer Arduino IDE:**
    - Download en installeer de Arduino IDE vanaf de [officiële website](https://www.arduino.cc/en/Main/Software).
@@ -81,6 +86,48 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
    - Selecteer het juiste board en poort in het `Tools` menu.
    - Klik op de uploadknop om de code naar de ESP32 te flashen.
 
+## Software vereisten MQTT
+   - Python 3.x
+   - Paho MQTT library
+   - InfluxDB Python library
+
+## Installatie MQTT
+1. Zorg ervoor dat Python is geïnstalleerd op je systeem
+2. Installeer de paho MQTT Library met behulp van pip:
+   - 'sudo pip install paho-mqtt'
+3. Installeer de InfluxDB Python Library met behulp van pip:
+   - 'sudo pip install influxdb'
+   - 'sudo pip install influxdb-client'
+  
+
+## Configuratie MQTT
+
+Pas de volgende variabelen aan in het script volgens jouw configuratie:
+![MQTT Code](https://github.com/VHJonas/Serre/blob/main/MQTT_Code)
+
+- `mqtt_broker`: IP-adres van de MQTT-broker (bijvoorbeeld de Raspberry Pi).
+- `mqtt_port`: Poortnummer van de MQTT-broker (standaard is 1883).
+- `mqtt_user`: Gebruikersnaam voor authenticatie bij de MQTT-broker.
+- `mqtt_password`: Wachtwoord voor authenticatie bij de MQTT-broker.
+- Topicnamen voor de sensoren: Pas deze aan indien nodig.
+
+  
+## Configuratie InfluxDB
+
+Pas de volgende variabelen aan in het script volgens jouw configuratie:
+![Bridge Code](https://github.com/VHJonas/Serre/blob/main/Bridge%20Code)
+
+- `INFLUXDB_ADDRESS`: IP-adres van de InfluxDB-server.
+- `INFLUXDB_USER`: Gebruikersnaam voor authenticatie bij de InfluxDB-server.
+- `INFLUXDB_PASSWORD`: Wachtwoord voor authenticatie bij de InfluxDB-server.
+- `INFLUXDB_DATABASE`: Naam van de InfluxDB-database.
+- `MQTT_ADDRESS`: IP-adres van de MQTT-broker.
+- `MQTT_USER`: Gebruikersnaam voor authenticatie bij de MQTT-broker.
+- `MQTT_PASSWORD`: Wachtwoord voor authenticatie bij de MQTT-broker.
+- `MQTT_TOPIC`: Onderwerp waarop de bridge zich abonneert om MQTT-berichten te ontvangen.
+- `MQTT_REGEX`: Reguliere expressie om MQTT-onderwerpen te matchen.
+- `MQTT_CLIENT_ID`: ID van de MQTT-client.
+     
 ## Gebruik
 
 1. **Starten:**
@@ -93,6 +140,8 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
    - Sensorgegevens worden gepubliceerd naar de MQTT topics die in de code zijn ingesteld.
    - Gebruik een MQTT-client om je te abonneren op deze topics en de gegevens te monitoren.
    - Het systeem regelt automatisch de verwarming, verlichting en bewatering op basis van de sensormetingen.
+  
+
 
 ## Schematisch Overzicht
 
