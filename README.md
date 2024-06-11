@@ -86,6 +86,7 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
 1. **Starten:**
    - Verbind alle sensoren en actuatoren volgens het schema.
    - Zet de ESP32 aan.
+   - Zet de Raspberry Pi aan.
 
 2. **Monitoren en Controleren:**
    - De ESP32 verbindt met het WiFi-netwerk en de MQTT-server.
