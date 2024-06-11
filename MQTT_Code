@@ -1,0 +1,58 @@
+import paho.mqtt.client as mqtt         #library voor mqtt gebruiken
+
+
+#De gekozen topicnamen voor de sensors
+ultrasone = "serre/serre/ultrasone"
+ds18b20 = "serre/serre/ds18b20"
+ldr = "serre/serre/ldr"
+hum_dht11 = "serre/serre/humdht11"
+temp_dht11 = "serre/serre/tempdht11"
+bodemsensor = "serre/serre/bodemvochtsensor"
+
+
+#Benodigdheden connectie broker(raspberry pi)
+mqtt_broker = "192.168.1.34"    #ipadres
+mqtt_port = 1883                #poort
+mqtt_user = "SERRE"           #gebruikersnaam
+mqtt_password = "SERRE"       #wachtwoord
+
+#Functie om te abonneren op alle onderwerpen
+def on_connect(client, userdata, flags, rc, properties=None):
+        print("verbonden " + str(rc))
+        client.subscribe(ultrasone)
+        client.subscribe(ds18b20)
+        client.subscribe(ldr)
+        client.subscribe(hum_dht11)
+        client.subscribe(temp_dht11)
+        client.subscribe(bodemsensor)
+
+#Functie om de berichten van arduino te lezen
+def on_message(client, userdata, msg):
+        topic = msg.topic
+        payload = msg.payload.decode("utf-8")
+
+        if topic == ultrasone:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+        if topic == ds18b20:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+        if topic == ldr:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+        if topic == hum_dht11:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+        if topic == temp_dht11:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+        if topic == bodemsensor:
+                print(f"Bericht ontvangen op topic {msg.topic}: {str(msg.payload.decode())}")
+
+
+mqttc = mqtt.Client() #mqtt.CallbackAPIVersion.VERSION2)   #callback functie van de mqttClient
+mqttc.on_connect = on_connect                           #bevestiging connect
+mqttc.on_message = on_message                           #bevestiging message
+mqttc.username_pw_set(mqtt_user, mqtt_password)         #ingeven gebruikersnaam en wachtwoord
+mqttc.connect(mqtt_broker, mqtt_port, 60)               #verbinden met broker
+
+#Blijven loopen van de code tot keyboardinterrupt bij manueel opzetten. (sudo python serre.py)
+try:
+        mqttc.loop_forever()
+except KeyboardInterrupt:
+        mqttc.disconnect()
