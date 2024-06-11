@@ -97,6 +97,12 @@ Hier is het elektrische schema van de SmartGreenhouse:
 
 ![Elektrisch Schema](https://github.com/VHJonas/Serre/blob/main/Elektrisch_schema.png)
 
+## PCB design
+
+Hier is het PCB-desgin van de SmartGreenhouse:
+
+![PCB-design](https://github.com/VHJonas/Serre/blob/main/PCB_schema.png)
+
 ## Bijdragen
 
 Bijdragen zijn welkom! Fork deze repository en dien een pull request in voor verbeteringen of bugfixes.
