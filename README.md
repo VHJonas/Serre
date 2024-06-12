@@ -68,10 +68,10 @@ SmartGreenhouse is een IoT-gebaseerd systeem voor monitoring en regeling van een
      - `LiquidCrystal I2C` by Frank de Brabander
 
 3. **Open het Project:**
-   - Download en open het `SmartGreenhouse.ino` bestand in de Arduino IDE.
+   - Download en open het `Volle_Code_Met_MQTT` bestand in de Arduino IDE.
 
 4. **Configureer WiFi en MQTT:**
-   - Update in het `SmartGreenhouse.ino` bestand de volgende regels met jouw WiFi en MQTT server details:
+   - Update in het `Volle_Code_Met_MQTT` bestand de volgende regels met jouw WiFi en MQTT server details:
      ```cpp
      const char* ssid = "jouw-ssid";
      const char* password = "jouw-wachtwoord";
